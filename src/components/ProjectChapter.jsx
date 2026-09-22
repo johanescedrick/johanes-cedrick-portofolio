@@ -164,12 +164,12 @@ export default function ProjectChapter({ project }) {
               {project.metrics.map((m) => (
                 <div
                   key={m.label}
-                  className="rounded-2xl border border-mist bg-white p-4 text-center shadow-sm"
+                  className="min-w-0 rounded-2xl border border-mist bg-white p-4 text-center shadow-sm"
                 >
                   <div className={`font-display text-xl font-bold ${accentText} md:text-2xl`}>
                     {m.value}
                   </div>
-                  <div className="mt-1 text-[11px] leading-tight text-slate2">
+                  <div className="mt-1 break-words text-[11px] leading-tight text-slate2">
                     {m.label}
                   </div>
                 </div>
