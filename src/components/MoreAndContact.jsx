@@ -121,8 +121,7 @@ export function Contact() {
         </motion.div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-sm text-white/50 sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Johanes Cedrick Wijaya.</p>
-          <p>Built with React, Tailwind CSS &amp; Framer Motion.</p>
+          <p>© {new Date().getFullYear()} Johanes Cedrick W.</p>
         </div>
       </div>
     </footer>

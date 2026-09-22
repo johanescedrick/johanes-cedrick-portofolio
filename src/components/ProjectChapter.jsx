@@ -22,7 +22,7 @@ function VisualPanel({ project }) {
   const [active, setActive] = useState(0)
   const v = project.visuals
   return (
-    <div className="md:sticky md:top-28 md:self-start">
+    <div>
       <div className="overflow-hidden rounded-3xl border border-mist bg-white shadow-lg shadow-royal/5">
         <div className="relative aspect-[16/11] bg-lavender">
           {v.map((img, i) => (
