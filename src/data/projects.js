@@ -52,7 +52,7 @@ export const projects = [
     role: 'Individual Project · Lead Data Scientist',
     domain: 'NLP · Sentiment & Topic Modeling',
     title:
-      'Public Sentiment & Topics on the Free Nutritious Meal (MBG) Program',
+      'Public Sentiment & Topics on the Makan Bergizi Gratis (MBG) Program',
     tagline: 'What the crowd feels — and what it is actually arguing about.',
     problem:
       'Public perception of the MBG program is dominated by viral, negative-leaning issues (negativity bias), drowning out the opinions and positive aspects actually emerging. A method was needed to map the discourse comprehensively — not just the size of negative sentiment, but the substance underneath it.',
