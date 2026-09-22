@@ -27,13 +27,13 @@ export default function Hero() {
         <div className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-royal to-royal-bright md:hidden" />
       </div>
 
-      <div className="mx-auto grid w-full max-w-content grid-cols-1 items-center gap-8 px-6 md:grid-cols-[1.15fr_0.85fr] md:px-10">
-        <div className="order-2 md:order-1">
+      <div className="mx-auto grid w-full max-w-content grid-cols-1 items-center gap-8 px-6 md:px-10">
+        <div className="mx-auto max-w-2xl text-center md:text-left">
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-5 flex items-center gap-3 font-display text-sm font-semibold tracking-[0.2em] text-ember"
+            className="mb-5 flex items-center justify-center gap-3 font-display text-sm font-semibold tracking-[0.2em] text-ember md:justify-start"
           >
             <span className="h-[3px] w-9 bg-ember" />
             DATA SCIENCE &amp; AI
@@ -54,7 +54,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mt-6 max-w-lg text-lg leading-relaxed text-slate2"
+            className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-slate2 md:mx-0"
           >
             {profile.tagline}
           </motion.p>
@@ -63,7 +63,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-8 flex flex-wrap items-center gap-3"
+            className="mt-8 flex flex-wrap items-center justify-center gap-3 md:justify-start"
           >
             <a
               href="#projects"
@@ -91,24 +91,6 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-
-        {/* Portrait */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="order-1 flex justify-center md:order-2 md:justify-end"
-        >
-          <div className="relative">
-            <div className="absolute inset-x-6 bottom-6 top-10 -z-10 rounded-[2rem] bg-gradient-to-b from-mist to-lavender" />
-            <img
-              src="/assets/profile-hero.png"
-              alt="Johanes Cedrick Wijaya"
-              className="h-[380px] w-auto object-contain drop-shadow-xl sm:h-[440px] md:h-[520px]"
-              loading="eager"
-            />
-          </div>
-        </motion.div>
       </div>
 
       <a
