@@ -56,16 +56,20 @@ function Visual({ project }) {
 
 function Metrics({ metrics }) {
   return (
-    <dl className="grid grid-cols-3 gap-3">
+    <dl className="grid grid-cols-3 gap-2 sm:gap-3">
       {metrics.map((m) => (
         <div
           key={m.label}
-          className="min-w-0 rounded-xl2 border border-hairline bg-white/70 px-4 py-5 text-center"
+          className="min-w-0 rounded-xl2 border border-hairline bg-white/70 px-2 py-4 text-center sm:px-3 sm:py-5"
         >
-          <dt className="font-display text-xl font-bold tracking-tight text-accent md:text-3xl">
+          {/* Sizes step back at lg: that is where the chapter splits into two
+              columns and these cards get their narrowest. */}
+          <dt className="break-words font-display text-[clamp(0.7rem,3.2vw,1.25rem)] font-bold leading-tight tracking-tight text-accent sm:text-xl lg:text-lg xl:text-2xl">
             {m.value}
           </dt>
-          <dd className="mt-1.5 break-words text-[12px] leading-tight text-muted">{m.label}</dd>
+          <dd className="mt-1.5 break-words text-[11px] leading-tight text-muted sm:text-[12px]">
+            {m.label}
+          </dd>
         </div>
       ))}
     </dl>
@@ -138,17 +142,20 @@ export default function ProjectChapter({ project }) {
   // Odd chapters put the figure on the left, even ones on the right.
   const visualFirst = project.index % 2 === 1
 
+  // The index is its own column so it can never be orphaned on a line of its
+  // own; everything after it reflows as ordinary text.
   const meta = (
-    <div className="mb-5 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[13px] text-muted">
-      <span className="font-mono text-[12px] text-accent">
+    <div className="mb-5 flex items-baseline gap-3 text-[13px] leading-relaxed text-muted">
+      <span className="shrink-0 font-mono text-[12px] font-medium text-accent">
         {String(project.index).padStart(2, '0')}
       </span>
-      <span className="text-hairline">·</span>
-      <span>{project.role}</span>
-      <span className="text-hairline">·</span>
-      <span>{project.domain}</span>
-      <span className="text-hairline">·</span>
-      <span>{project.date}</span>
+      <p className="min-w-0">
+        {project.role}
+        <span className="px-1.5 text-hairline">·</span>
+        {project.domain}
+        <span className="px-1.5 text-hairline">·</span>
+        {project.date}
+      </p>
     </div>
   )
 
