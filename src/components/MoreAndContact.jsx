@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { Mail, Linkedin, Github, ArrowUpRight } from 'lucide-react'
 import { moreProjects } from '../data/projects'
 import { profile } from '../data/profile'
-import { useSpotlight } from '../lib/pointer'
 
 const reveal = {
   hidden: { opacity: 0, y: 20 },
@@ -14,17 +13,14 @@ const reveal = {
 }
 
 function ProjectRow({ p, i }) {
-  const { ref, onPointerMove } = useSpotlight()
   return (
     <motion.div
-      ref={ref}
-      onPointerMove={onPointerMove}
       custom={i}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: '-40px' }}
       variants={reveal}
-      className="spotlight grid grid-cols-1 items-baseline gap-x-6 gap-y-2.5 rounded-xl2 border-b border-hairline/70 px-3 py-6 transition-colors sm:grid-cols-[1fr_auto]"
+      className="grid grid-cols-1 items-baseline gap-x-6 gap-y-2.5 rounded-xl2 border-b border-hairline/70 px-3 py-6 transition-colors sm:grid-cols-[1fr_auto]"
     >
       <h3 className="font-display text-[17px] font-medium leading-snug tracking-tight text-ink md:text-lg">
         {p.title}
@@ -71,15 +67,12 @@ export function MoreProjects() {
 }
 
 function ContactCard({ icon: Icon, label, value, href }) {
-  const { ref, onPointerMove } = useSpotlight()
   return (
     <a
-      ref={ref}
-      onPointerMove={onPointerMove}
       href={href}
       target={href.startsWith('http') ? '_blank' : undefined}
       rel="noreferrer"
-      className="spotlight group flex items-center justify-between gap-3 rounded-xl2 border border-hairline bg-white p-6 transition hover:border-accent/50"
+      className="group flex items-center justify-between gap-3 rounded-xl2 border border-hairline bg-white p-6 transition hover:border-accent/50"
     >
       <span className="flex min-w-0 items-center gap-4">
         <Icon size={19} className="shrink-0 text-muted transition group-hover:text-accent" />

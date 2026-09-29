@@ -54,31 +54,6 @@ a:focus-visible, button:focus-visible {
   overflow-wrap: break-word;
 }
 
-/* Local highlight that follows the pointer inside a single card. */
-.spotlight {
-  position: relative;
-  isolation: isolate;
-}
-.spotlight::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 320ms ease;
-  background: radial-gradient(
-    340px circle at var(--cx, 50%) var(--cy, 50%),
-    rgba(0, 85, 255, 0.09),
-    transparent 60%
-  );
-}
-.spotlight:hover::before { opacity: 1; }
-
-@media (hover: none) {
-  .spotlight::before { display: none; }
-}
-
 /* Brand marks ship as solid black SVG, which already suits the light ground. */
 .logo-mark {
   opacity: 0.45;

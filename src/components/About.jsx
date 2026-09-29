@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import { profile } from '../data/profile'
 import { logoFor } from '../data/logos'
-import { useSpotlight } from '../lib/pointer'
 
 const reveal = {
   hidden: { opacity: 0, y: 22 },
@@ -10,13 +9,8 @@ const reveal = {
 }
 
 function EducationCard({ e }) {
-  const { ref, onPointerMove } = useSpotlight()
   return (
-    <div
-      ref={ref}
-      onPointerMove={onPointerMove}
-      className="spotlight rounded-xl2 border border-hairline bg-white p-7 transition hover:border-accent/40"
-    >
+    <div className="rounded-xl2 border border-hairline bg-white p-7 transition hover:border-accent/40">
       <div className="mb-4 flex items-baseline justify-between gap-3">
         <span className="text-[13px] text-muted">{e.grad}</span>
         <span className="font-display text-sm font-semibold text-accent">{e.gpa}</span>

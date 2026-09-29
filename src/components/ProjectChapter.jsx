@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Github, ArrowUpRight, Plus, Minus } from 'lucide-react'
 import { logoFor } from '../data/logos'
-import { useSpotlight } from '../lib/pointer'
 
 const reveal = {
   hidden: { opacity: 0, y: 22 },
@@ -12,14 +11,9 @@ const reveal = {
 function Visual({ project }) {
   const [active, setActive] = useState(0)
   const v = project.visuals
-  const { ref, onPointerMove } = useSpotlight()
 
   return (
-    <figure
-      ref={ref}
-      onPointerMove={onPointerMove}
-      className="spotlight overflow-hidden rounded-xl2 border border-hairline bg-white"
-    >
+    <figure className="overflow-hidden rounded-xl2 border border-hairline bg-white">
       <div className="relative aspect-[16/11] bg-white">
         {v.map((img, i) => (
           <img
