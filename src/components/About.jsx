@@ -15,7 +15,7 @@ function EducationCard({ e }) {
     <div
       ref={ref}
       onPointerMove={onPointerMove}
-      className="spotlight rounded-xl2 border border-hairline bg-white/70 p-7 transition hover:border-accent/40"
+      className="spotlight rounded-xl2 border border-hairline bg-white p-7 transition hover:border-accent/40"
     >
       <div className="mb-4 flex items-baseline justify-between gap-3">
         <span className="text-[13px] text-muted">{e.grad}</span>

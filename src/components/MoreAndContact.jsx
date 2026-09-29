@@ -79,7 +79,7 @@ function ContactCard({ icon: Icon, label, value, href }) {
       href={href}
       target={href.startsWith('http') ? '_blank' : undefined}
       rel="noreferrer"
-      className="spotlight group flex items-center justify-between gap-3 rounded-xl2 border border-hairline bg-white/70 p-6 transition hover:border-accent/50"
+      className="spotlight group flex items-center justify-between gap-3 rounded-xl2 border border-hairline bg-white p-6 transition hover:border-accent/50"
     >
       <span className="flex min-w-0 items-center gap-4">
         <Icon size={19} className="shrink-0 text-muted transition group-hover:text-accent" />

@@ -60,7 +60,7 @@ function Metrics({ metrics }) {
       {metrics.map((m) => (
         <div
           key={m.label}
-          className="min-w-0 rounded-xl2 border border-hairline bg-white/70 px-2 py-4 text-center sm:px-3 sm:py-5"
+          className="min-w-0 rounded-xl2 border border-hairline bg-white px-2 py-4 text-center sm:px-3 sm:py-5"
         >
           {/* Sizes step back at lg: that is where the chapter splits into two
               columns and these cards get their narrowest. */}
@@ -256,7 +256,7 @@ export default function ProjectChapter({ project }) {
       className="scroll-mt-24 py-10 md:py-14"
     >
       <div className="mx-auto max-w-content px-5 md:px-10">
-        <div className="rounded-xl3 border border-hairline bg-white/60 p-6 md:p-12">
+        <div className="rounded-xl3 border border-hairline bg-white p-6 md:p-12">
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16">
             <div className={visualFirst ? 'lg:order-2' : ''}>
               {meta}
