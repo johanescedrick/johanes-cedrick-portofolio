@@ -4,26 +4,39 @@ export default {
   theme: {
     extend: {
       colors: {
-        royal: {
-          DEFAULT: '#1E52C8',
-          deep: '#123A9E',
-          bright: '#3B6FE0',
+        ink: '#1D1D1F',
+        graphite: '#424245',
+        muted: '#6E6E73',
+        hairline: '#D2D2D7',
+        mist: '#F5F5F7',
+        accent: {
+          DEFAULT: '#0055FF',
+          hi: '#3B7BFF',
+          soft: '#EBF1FF',
         },
-        ember: {
-          DEFAULT: '#E8820E',
-          soft: '#F4A94A',
-        },
-        lavender: '#EEF1FB',
-        mist: '#E3E9F9',
-        ink: '#161E38',
-        slate2: '#4A5578',
+        violet: '#6D3BEF',
       },
       fontFamily: {
-        display: ['Poppins', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       maxWidth: {
         content: '1180px',
+        read: '68ch',
+      },
+      borderRadius: {
+        xl2: '22px',
+        xl3: '30px',
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 48s linear infinite',
       },
     },
   },

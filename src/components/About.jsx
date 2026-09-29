@@ -1,51 +1,74 @@
 import { motion } from 'framer-motion'
-import { GraduationCap, MapPin } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 import { profile } from '../data/profile'
+import { logoFor } from '../data/logos'
+import { useSpotlight } from '../lib/pointer'
 
 const reveal = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 22 },
   show: { opacity: 1, y: 0, transition: { duration: 0.55 } },
+}
+
+function EducationCard({ e }) {
+  const { ref, onPointerMove } = useSpotlight()
+  return (
+    <div
+      ref={ref}
+      onPointerMove={onPointerMove}
+      className="spotlight rounded-xl2 border border-hairline bg-white/70 p-7 transition hover:border-accent/40"
+    >
+      <div className="mb-4 flex items-baseline justify-between gap-3">
+        <span className="text-[13px] text-muted">{e.grad}</span>
+        <span className="font-display text-sm font-semibold text-accent">{e.gpa}</span>
+      </div>
+      <h3 className="font-display text-lg font-semibold tracking-tight text-ink">{e.degree}</h3>
+      <p className="mt-1 text-[15px] text-muted">{e.school}</p>
+      <p className="mt-5 border-t border-hairline/70 pt-4 text-[14px] leading-relaxed text-graphite">
+        {e.coursework}
+      </p>
+    </div>
+  )
 }
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-24 py-24 md:py-32">
-      <div className="mx-auto max-w-content px-6 md:px-10">
+    <section id="about" className="relative scroll-mt-24 py-24 md:py-36">
+      <div className="mx-auto max-w-content px-5 md:px-10">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
           variants={reveal}
-          className="mb-12"
+          className="mb-16 max-w-3xl"
         >
-          <p className="mb-3 font-display text-sm font-semibold tracking-[0.2em] text-ember">
-            WHO AM I
+          <p className="mb-5 text-[13px] font-semibold uppercase tracking-[0.14em] text-accent">
+            Who am I
           </p>
-          <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+          <h2 className="text-balance font-display text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.08] tracking-[-0.03em] text-ink">
             About me
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-14">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,0.74fr)_minmax(0,1.26fr)] lg:gap-20">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-80px' }}
             variants={reveal}
-            className="md:sticky md:top-28 md:self-start"
+            className="lg:sticky lg:top-28 lg:self-start"
           >
-            <div className="overflow-hidden rounded-3xl border border-mist bg-white shadow-sm">
+            <div className="overflow-hidden rounded-xl3 border border-hairline bg-mist">
               <img
-                src="/assets/about1.jpg"
+                src="/assets/about.jpg"
                 alt="Johanes Cedrick Wijaya"
                 className="aspect-[4/5] w-full object-cover"
                 loading="lazy"
               />
             </div>
-            <div className="mt-4 flex items-center gap-2 text-sm text-slate2">
-              <MapPin size={16} className="text-royal" />
+            <p className="mt-4 flex items-center gap-2 text-[14px] text-muted">
+              <MapPin size={15} className="text-accent" />
               {profile.location}
-            </div>
+            </p>
           </motion.div>
 
           <motion.div
@@ -54,55 +77,57 @@ export default function About() {
             viewport={{ once: true, margin: '-80px' }}
             variants={reveal}
           >
-            <div className="prose-justify space-y-5 text-lg leading-relaxed text-slate2">
+            <div className="prose-justify max-w-read space-y-6 text-[17px] leading-[1.65] text-graphite md:text-[19px]">
               {profile.about.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
 
-            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {profile.education.map((e) => (
-                <div
-                  key={e.degree}
-                  className="rounded-2xl border border-mist bg-white p-5 shadow-sm"
-                >
-                  <div className="mb-2 flex items-center gap-2 text-royal">
-                    <GraduationCap size={18} />
-                    <span className="font-display text-sm font-semibold">
-                      {e.grad}
-                    </span>
-                  </div>
-                  <h3 className="font-display text-lg font-semibold text-ink">
-                    {e.degree}
-                  </h3>
-                  <p className="text-sm text-slate2">{e.school}</p>
-                  <p className="mt-2 inline-block rounded-full bg-lavender px-3 py-1 font-display text-sm font-semibold text-royal">
-                    GPA {e.gpa}
-                  </p>
-                  <p className="prose-justify mt-3 text-sm leading-relaxed text-slate2">
-                    {e.coursework}
-                  </p>
-                </div>
-              ))}
+            <div className="mt-16">
+              <h3 className="mb-6 font-display text-xl font-semibold tracking-tight text-ink">
+                Education
+              </h3>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {profile.education.map((e) => (
+                  <EducationCard key={e.degree} e={e} />
+                ))}
+              </div>
             </div>
 
-            {/* Skills */}
-            <div className="mt-8">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="mt-16">
+              <h3 className="mb-6 font-display text-xl font-semibold tracking-tight text-ink">
+                Capabilities
+              </h3>
+              <div className="space-y-8">
                 {Object.entries(profile.skills).map(([group, items]) => (
-                  <div key={group}>
-                    <h4 className="mb-2 font-display text-sm font-semibold text-ink">
+                  <div
+                    key={group}
+                    className="grid grid-cols-1 gap-3 sm:grid-cols-[150px_1fr] sm:gap-6"
+                  >
+                    <h4 className="text-[13px] font-semibold uppercase tracking-[0.1em] text-muted sm:pt-2">
                       {group}
                     </h4>
-                    <div className="flex flex-wrap gap-1.5">
-                      {items.map((s) => (
-                        <span
-                          key={s}
-                          className="rounded-full border border-mist bg-white px-2.5 py-1 text-xs font-medium text-slate2"
-                        >
-                          {s}
-                        </span>
-                      ))}
+                    <div className="flex flex-wrap gap-2">
+                      {items.map((s) => {
+                        const logo = logoFor(s)
+                        return (
+                          <span
+                            key={s}
+                            className="inline-flex items-center gap-2 rounded-full border border-hairline bg-white/70 px-3.5 py-1.5 text-[14px] text-graphite transition hover:border-accent/50 hover:text-ink"
+                          >
+                            {logo && (
+                              <img
+                                src={logo}
+                                alt=""
+                                aria-hidden="true"
+                                loading="lazy"
+                                className="logo-mark h-3.5 w-3.5"
+                              />
+                            )}
+                            {s}
+                          </span>
+                        )
+                      })}
                     </div>
                   </div>
                 ))}
