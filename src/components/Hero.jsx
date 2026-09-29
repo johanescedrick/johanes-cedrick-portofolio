@@ -54,7 +54,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-slate2 md:mx-0"
+            className="mx-auto mt-6 max-w-lg hyphens-auto text-lg leading-relaxed text-slate2 md:mx-0 md:text-justify"
           >
             {profile.tagline}
           </motion.p>

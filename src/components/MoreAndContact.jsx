@@ -29,7 +29,7 @@ export function MoreProjects() {
           <h2 className="font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
             More things I&apos;ve built
           </h2>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate2">
+          <p className="prose-justify mt-4 max-w-2xl text-lg leading-relaxed text-slate2">
             A wider set of projects across NLP, deep learning, optimization, and
             mathematical modeling.
           </p>
@@ -88,7 +88,7 @@ export function Contact() {
           <h2 className="max-w-2xl font-display text-4xl font-bold leading-tight tracking-tight md:text-6xl">
             Have a problem worth solving with data?
           </h2>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/70">
+          <p className="prose-justify mt-5 max-w-xl text-lg leading-relaxed text-white/70">
             I&apos;m open to data science, machine learning, and research
             opportunities. The fastest way to reach me is email.
           </p>

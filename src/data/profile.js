@@ -8,12 +8,12 @@ export const profile = {
   github: 'https://github.com/johanescedrick',
   location: 'Jakarta, Indonesia',
   about: [
-    'Hi! I\u2019m Johanes Cedrick, a double-degree student in Computer Science and Mathematics at Bina Nusantara University, with a strong interest in Artificial Intelligence, Data Science, and mathematical problem-solving.',
-    'My focus is analyzing data and designing intelligent, data-driven solutions to real-world problems — often by combining optimization, mathematical modeling, and machine learning to tackle a single challenge from several angles at once.',
+    'Hi! My name is Johanes Cedrick, and I am a student in the double degree program for Computer Science and Mathematics at Bina Nusantara University. I have an interest in Artificial Intelligence, Data Science, and mathematical problem-solving approaches.',
+    'My primary focus is analyzing data and designing intelligent, data-driven solutions to address real-world problems. I am passionate about integrating computational approaches and mathematical logic to formulate solutions, for example by combining optimization, mathematical modeling, and machine learning to tackle a specific problem.',
   ],
   education: [
     {
-      degree: 'B.Sc. Computer Science',
+      degree: 'S.Kom. Computer Science',
       school: 'Bina Nusantara University',
       gpa: '3.79 / 4.00',
       grad: 'Expected 2027',
@@ -21,7 +21,7 @@ export const profile = {
         'Data Structures, OOP, Database, Artificial Intelligence, Machine Learning, Deep Learning & Optimization, Text Mining, Computer Vision, Speech & Audio Processing',
     },
     {
-      degree: 'B.Sc. Mathematics',
+      degree: 'S.Mat. Mathematics',
       school: 'Bina Nusantara University',
       gpa: '3.79 / 4.00',
       grad: 'Expected 2027',

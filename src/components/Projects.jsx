@@ -19,9 +19,9 @@ export default function Projects() {
           <h2 className="max-w-2xl font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
             Featured Works & Case Studies
           </h2>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate2">
-            Each case study tracks a real-world decision: From the initial problem statement, 
-            through the technical approach and results, to actionable next steps. Explore a selection of 
+          <p className="prose-justify mt-4 max-w-2xl text-lg leading-relaxed text-slate2">
+            Each case study tracks a real-world decision: from the initial problem statement,
+            through the technical approach and results, to actionable next steps. Explore a selection of
             my work spanning Data Science, Natural Language Processing (NLP), Predictive, and Prescriptive Analytics.
           </p>
         </motion.div>

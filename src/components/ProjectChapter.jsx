@@ -95,7 +95,7 @@ export default function ProjectChapter({ project }) {
           <h3 className="max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight text-ink md:text-4xl text-balance">
             {project.title}
           </h3>
-          <p className="mt-3 max-w-2xl text-lg italic text-slate2">
+          <p className="prose-justify mt-3 max-w-2xl text-lg italic text-slate2">
             {project.tagline}
           </p>
         </motion.header>
@@ -130,26 +130,20 @@ export default function ProjectChapter({ project }) {
                               size={18}
                               className={`mt-0.5 shrink-0 ${accentText}`}
                             />
-                            <span className="leading-relaxed">{item}</span>
+                            <span className="prose-justify leading-relaxed">{item}</span>
                           </li>
                         ))}
                       </ul>
                     ) : (
-                      <p className="leading-relaxed text-slate2">{content}</p>
+                      <p className="prose-justify leading-relaxed text-slate2">{content}</p>
                     )}
                   </motion.div>
                 )
               })}
-
-              {project.note && (
-                <p className="rounded-xl border border-dashed border-mist bg-white/60 px-4 py-3 text-sm text-slate2">
-                  {project.note}
-                </p>
-              )}
             </div>
           </div>
 
-          {/* Right: sticky visual + metrics */}
+          {/* Right: visual + metrics */}
           <div className="order-1 md:order-2">
             <VisualPanel project={project} />
 
@@ -178,7 +172,7 @@ export default function ProjectChapter({ project }) {
           </div>
         </div>
 
-        {/* What I did — steps */}
+        {/* What I did steps */}
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -208,7 +202,7 @@ export default function ProjectChapter({ project }) {
                     {s.t}
                   </span>
                 </div>
-                <p className="text-sm leading-relaxed text-slate2">{s.d}</p>
+                <p className="prose-justify text-sm leading-relaxed text-slate2">{s.d}</p>
               </li>
             ))}
           </ol>

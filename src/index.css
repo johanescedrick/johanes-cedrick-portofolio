@@ -46,3 +46,12 @@ a:focus-visible, button:focus-visible {
 
 /* Grain / texture helpers */
 .text-balance { text-wrap: balance; }
+
+/* Justified body copy. Hyphenation keeps narrow columns from opening rivers. */
+.prose-justify {
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}

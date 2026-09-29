@@ -54,7 +54,7 @@ export default function About() {
             viewport={{ once: true, margin: '-80px' }}
             variants={reveal}
           >
-            <div className="space-y-5 text-lg leading-relaxed text-slate2">
+            <div className="prose-justify space-y-5 text-lg leading-relaxed text-slate2">
               {profile.about.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
@@ -79,7 +79,7 @@ export default function About() {
                   <p className="mt-2 inline-block rounded-full bg-lavender px-3 py-1 font-display text-sm font-semibold text-royal">
                     GPA {e.gpa}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-slate2">
+                  <p className="prose-justify mt-3 text-sm leading-relaxed text-slate2">
                     {e.coursework}
                   </p>
                 </div>
