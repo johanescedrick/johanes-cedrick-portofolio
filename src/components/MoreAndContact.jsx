@@ -102,18 +102,18 @@ export function Contact() {
                 rel="noreferrer"
                 className="group flex items-center justify-between rounded-2xl border border-white/15 bg-white/5 p-5 transition hover:border-white/40 hover:bg-white/10"
               >
-                <div className="flex items-center gap-3">
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-white">
+                <div className="flex min-w-0 items-center gap-3">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-white">
                     <Icon size={18} />
                   </span>
-                  <div>
+                  <div className="min-w-0">
                     <div className="font-display text-sm font-semibold">{label}</div>
-                    <div className="text-sm text-white/60">{value}</div>
+                    <div className="truncate text-xs text-white/60 sm:text-sm">{value}</div>
                   </div>
                 </div>
                 <ArrowUpRight
                   size={18}
-                  className="text-white/40 transition group-hover:text-white"
+                  className="ml-3 shrink-0 text-white/40 transition group-hover:text-white"
                 />
               </a>
             ))}
