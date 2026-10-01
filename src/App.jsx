@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
+import Awards from './components/Awards'
 import Projects from './components/Projects'
 import { MoreProjects, Contact } from './components/MoreAndContact'
 
@@ -11,6 +12,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <Awards />
         <Projects />
         <MoreProjects />
       </main>

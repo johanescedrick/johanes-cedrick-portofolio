@@ -3,8 +3,10 @@ import { motion, useScroll, useSpring } from 'framer-motion'
 
 const links = [
   { label: 'About', href: '#about' },
+  { label: 'Awards', href: '#awards' },
   { label: 'Work', href: '#projects' },
-  { label: 'More', href: '#more' },
+  // Dropped on phones so five links don't crowd the name off the bar.
+  { label: 'More', href: '#more', desktopOnly: true },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -40,7 +42,7 @@ export default function Navbar() {
 
         <ul className="flex items-center gap-0.5 sm:gap-1">
           {links.map((l) => (
-            <li key={l.href}>
+            <li key={l.href} className={l.desktopOnly ? 'hidden sm:block' : undefined}>
               <a
                 href={l.href}
                 className="rounded-full px-2 py-2 text-[13px] font-medium text-graphite transition hover:bg-mist hover:text-ink sm:px-3 sm:text-sm"
