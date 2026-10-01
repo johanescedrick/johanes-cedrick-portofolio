@@ -102,13 +102,13 @@ All content lives in plain data files — no need to touch the components:
 
 - **`src/data/profile.js`** — your name, tagline, about text, education, skills, contact links.
 - **`src/data/projects.js`** — the 7 full case-study projects and the "more projects" list.
-- **`public/assets/`** — all images (profile photo and project charts).
+- **`public/assets_final/`** — all images. Project charts are named `p<N>-<description>.png` (N = project number), plus the profile photos and `logos/`.
 
-To swap an image, drop a new file into `public/assets/` and update the matching `src` in `projects.js` (or the `<img>` in `src/components/Hero.jsx` / `About.jsx`).
+To swap an image, drop a new file into `public/assets_final/` and update the matching `src` in `projects.js` (or the `<img>` in `src/components/Hero.jsx` / `About.jsx`).
 
 ### Replacing the About photo
 
-The About-section photo (`public/assets/about.jpg`) is currently cropped from the batik portrait. To use a different photo, replace that file (keep the same name, roughly a 4:5 portrait ratio).
+The About-section photo is `public/assets_final/profile-photo.jpg`. To use a different photo, replace that file (keep the same name, roughly a 4:5 portrait ratio).
 
 ---
 
@@ -119,7 +119,7 @@ The About-section photo (`public/assets/about.jpg`) is currently cropped from th
 ├── index.html                 # HTML shell, fonts, meta tags
 ├── public/
 │   ├── favicon.svg
-│   └── assets/                # profile photo + project charts
+│   └── assets_final/          # profile photos, logos + project charts (p1-…, p2-…)
 ├── src/
 │   ├── main.jsx               # React entry
 │   ├── App.jsx                # assembles all sections

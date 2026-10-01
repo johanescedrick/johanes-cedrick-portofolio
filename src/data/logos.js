@@ -1,4 +1,4 @@
-// Brand marks from Simple Icons (CC0), vendored into /public/assets/logos.
+// Brand marks from Simple Icons (CC0), vendored into /public/assets_final/logos.
 // Keys are lowercased tech labels as they appear in profile.js / projects.js.
 const map = {
   python: 'python',
@@ -28,7 +28,7 @@ const map = {
 
 export function logoFor(label) {
   const slug = map[label.trim().toLowerCase()]
-  return slug ? `/assets/logos/${slug}.svg` : null
+  return slug ? `/assets_final/logos/${slug}.svg` : null
 }
 
 // Ticker strip under the hero. Order is deliberate, not alphabetical.

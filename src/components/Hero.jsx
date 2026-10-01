@@ -17,7 +17,7 @@ function Marquee() {
         {row.map((slug, i) => (
           <img
             key={`${slug}-${i}`}
-            src={`/assets/logos/${slug}.svg`}
+            src={`/assets_final/logos/${slug}.svg`}
             alt=""
             aria-hidden="true"
             loading="lazy"

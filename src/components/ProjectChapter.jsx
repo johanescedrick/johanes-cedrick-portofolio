@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Github, ArrowUpRight, Plus, Minus } from 'lucide-react'
+import { Github, ArrowUpRight, Plus, Minus, ChevronLeft, ChevronRight } from 'lucide-react'
 import { logoFor } from '../data/logos'
 
 const reveal = {
@@ -8,33 +8,113 @@ const reveal = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55 } },
 }
 
+// Idle time before the gallery advances on its own. Any user input on the
+// gallery restarts this countdown.
+const AUTO_ADVANCE_MS = 10000
+
+const arrowClass =
+  'absolute top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-hairline bg-white/90 text-ink shadow-sm backdrop-blur transition hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent'
+
 function Visual({ project }) {
   const [active, setActive] = useState(0)
+  // Bumped on every user input so the auto-advance timer restarts even when
+  // the input lands on the slide that is already showing.
+  const [interaction, setInteraction] = useState(0)
+  const touchX = useRef(null)
   const v = project.visuals
+  const n = v.length
+  // Some charts are wide or tall enough that their text is unreadable at
+  // card size, so the frame links to the full image (or its `full` version).
+  const fullHref = `/assets_final/${v[active].full ?? v[active].src}`
+
+  useEffect(() => {
+    if (n < 2) return
+    const id = setTimeout(() => setActive((a) => (a + 1) % n), AUTO_ADVANCE_MS)
+    return () => clearTimeout(id)
+  }, [active, interaction, n])
+
+  const goTo = (i) => {
+    setActive(((i % n) + n) % n)
+    setInteraction((c) => c + 1)
+  }
+
+  const onTouchStart = (e) => {
+    touchX.current = e.touches[0].clientX
+    setInteraction((c) => c + 1)
+  }
+  const onTouchEnd = (e) => {
+    if (touchX.current === null) return
+    const dx = e.changedTouches[0].clientX - touchX.current
+    touchX.current = null
+    if (Math.abs(dx) > 40) goTo(active + (dx < 0 ? 1 : -1))
+  }
+
+  const onKeyDown = (e) => {
+    if (e.key === 'ArrowLeft') goTo(active - 1)
+    if (e.key === 'ArrowRight') goTo(active + 1)
+  }
 
   return (
-    <figure className="overflow-hidden rounded-xl2 border border-hairline bg-white">
-      <div className="relative aspect-[16/11] bg-white">
-        {v.map((img, i) => (
-          <img
-            key={img.src}
-            src={`/assets/${img.src}`}
-            alt={img.caption}
-            loading="lazy"
-            className={`absolute inset-0 h-full w-full object-contain p-4 transition-opacity duration-500 ${
-              i === active ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
-        ))}
+    <figure
+      className="overflow-hidden rounded-xl2 border border-hairline bg-white"
+      onKeyDown={onKeyDown}
+    >
+      <div
+        className="relative"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
+        <a
+          href={fullHref}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Open full size: ${v[active].caption}`}
+          className="relative block aspect-[16/11] cursor-zoom-in bg-white"
+        >
+          {v.map((img, i) => (
+            <img
+              key={img.src}
+              src={`/assets_final/${img.src}`}
+              alt={img.caption}
+              loading="lazy"
+              className={`absolute inset-0 h-full w-full object-contain p-4 transition-opacity duration-500 ${
+                i === active ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          ))}
+        </a>
+        {n > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={() => goTo(active - 1)}
+              aria-label="Previous visual"
+              className={`${arrowClass} left-3`}
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              type="button"
+              onClick={() => goTo(active + 1)}
+              aria-label="Next visual"
+              className={`${arrowClass} right-3`}
+            >
+              <ChevronRight size={20} />
+            </button>
+          </>
+        )}
       </div>
       <figcaption className="flex items-center justify-between gap-4 border-t border-hairline/80 px-5 py-3.5">
         <span className="text-[13px] leading-snug text-muted">{v[active].caption}</span>
-        {v.length > 1 && (
-          <span className="flex shrink-0 gap-1.5">
+        {n > 1 && (
+          <span className="flex shrink-0 items-center gap-1.5">
+            <span className="mr-1.5 font-mono text-[11px] tabular-nums text-muted">
+              {active + 1}/{n}
+            </span>
             {v.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setActive(i)}
+                onClick={() => goTo(i)}
                 aria-label={`Show visual ${i + 1}`}
                 className={`h-2 rounded-full transition-all ${
                   i === active ? 'w-6 bg-accent' : 'w-2 bg-hairline hover:bg-muted'

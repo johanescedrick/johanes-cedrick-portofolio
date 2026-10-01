@@ -33,8 +33,12 @@ export const projects = [
     repo: 'https://github.com/johanescedrick/health-insurance-claim-fraud-risk-system',
     accent: 'royal',
     visuals: [
-      { src: 'p1-severity-secondary.jpg', caption: 'Fraud rate by severity level and secondary diagnosis' },
-      { src: 'p1-los-heatmap.jpg', caption: 'Fraud rate by length of stay and severity' },
+      { src: 'p1-severity-secondary.png', caption: 'Fraud rate by severity level and secondary diagnosis' },
+      { src: 'p1-los-heatmap.png', caption: 'Fraud rate by length of stay and severity' },
+      { src: 'p1-feature-importance.png', caption: 'Top 20 most influential features in LightGBM and CatBoost' },
+      { src: 'p1-chi-square.png', caption: 'Chi-Square test results for categorical features' },
+      { src: 'p1-mann-whitney.png', caption: 'Mann-Whitney U test results for numerical features' },
+      { src: 'p1-prescriptive-insights.png', caption: 'Excerpt of the prescriptive insights' },
     ],
     steps: [
       { t: 'Data Understanding', d: 'Mapped the data structure, explored its condition, and identified the label along with the numerical and categorical features.' },
@@ -73,9 +77,10 @@ export const projects = [
     repo: 'https://github.com/johanescedrick/mbg-youtube-comments-topic-modeling-analysis',
     accent: 'ember',
     visuals: [
-      { src: 'p2-positive-wc.jpg', caption: 'Word cloud of positive comments' },
-      { src: 'p2-negative-wc.jpg', caption: 'Word cloud of negative comments' },
-      { src: 'p2-corruption-wc.jpg', caption: 'Negative topic: alleged project corruption' },
+      { src: 'p2-sentiment-pie.png', caption: 'Sentiment distribution of the comments' },
+      { src: 'p2-positive-wc.png', caption: 'Word cloud of positive comments' },
+      { src: 'p2-negative-wc.png', caption: 'Word cloud of negative comments' },
+      { src: 'p2-corruption-wc.png', caption: 'Negative topic: alleged project corruption' },
     ],
     steps: [
       { t: 'Data Scraping', d: 'Collected comment data from YouTube videos relevant to the MBG program.' },
@@ -117,9 +122,11 @@ export const projects = [
     repo: 'https://github.com/johanescedrick/rice-supply-chain-profit-optimization',
     accent: 'royal',
     visuals: [
-      { src: 'p3-dea-efficiency.jpg', caption: 'DEA-VRS efficiency per supply chain actor' },
-      { src: 'p3-cost-reduction.jpg', caption: 'Cost reduction per input for each actor' },
-      { src: 'p3-cost-saving.jpg', caption: 'Total cost saving per actor after LP' },
+      { src: 'p3-dea-efficiency.png', caption: 'DEA-VRS efficiency per supply chain actor' },
+      { src: 'p3-cost-reduction.png', caption: 'Cost reduction per input for each actor' },
+      { src: 'p3-profit-improved.png', caption: 'Share of business units with improved profit after LP' },
+      { src: 'p3-cost-structure.png', caption: 'Cost structure before and after LP' },
+      { src: 'p3-cost-saving.png', caption: 'Total cost saving per actor after LP' },
     ],
     steps: [
       { t: 'Data Understanding', d: 'Checked data condition, duplication, and structure for the five supply chain actors across five regencies.' },
@@ -159,9 +166,13 @@ export const projects = [
     repo: 'https://github.com/johanescedrick/public-opinion-analysis-using-clustering-topic-modeling',
     accent: 'ember',
     visuals: [
-      { src: 'p4-cluster-anak.jpg', caption: 'Cluster on youth and education' },
-      { src: 'p4-topic2.jpg', caption: 'Topic word cloud on AI and learning' },
-      { src: 'p4-silhouette.jpg', caption: 'Silhouette and Elbow for the optimal k' },
+      { src: 'p4-cluster-anak.png', caption: 'Cluster on youth and education' },
+      { src: 'p4-topic1.png', caption: 'Topic 1 word cloud on AI and learning' },
+      { src: 'p4-topic2.png', caption: 'Topic 2 word cloud on AI and learning' },
+      { src: 'p4-topic-dist.png', caption: 'Topic distribution in the test set' },
+      { src: 'p4-silhouette.png', caption: 'Silhouette score for choosing the optimal k' },
+      { src: 'p4-topwords.png', caption: 'Top 20 words across the comments' },
+      { src: 'p4-wordcount-dist.png', caption: 'Distribution of comment word counts' },
     ],
     steps: [
       { t: 'Scraping & Understanding', d: 'Collected YouTube comments about AI in education and checked the state of the data.' },
@@ -202,9 +213,11 @@ export const projects = [
     repo: 'https://github.com/johanescedrick/gojek-reviews-analysis-using-sentiment-analysis-topic-modeling',
     accent: 'royal',
     visuals: [
-      { src: 'p5-driver-wc.jpg', caption: 'Negative topic word cloud on hard to find drivers' },
-      { src: 'p5-version-heatmap.jpg', caption: 'Topic distribution by app version' },
-      { src: 'p5-topwords.jpg', caption: 'Top words across the reviews' },
+      { src: 'p5-version-heatmap.png', caption: 'Topic distribution by major app version' },
+      { src: 'p5-minor-version-heatmap.png', caption: 'Topic distribution by minor version for 4.x and 5.x' },
+      { src: 'p5-version-topic-bars.png', caption: 'Positive and negative topic counts per minor version' },
+      { src: 'p5-topic-summary.png', caption: 'Top strengths and weaknesses per minor version in 4.x', full: 'p5-topic-summary-full.png' },
+      { src: 'p5-driver-wc.png', caption: 'Negative topic word cloud on hard to find drivers' },
     ],
     steps: [
       { t: 'Scraping & Understanding', d: 'Collected Gojek reviews from the Play Store with google-play-scraper, then cleaned and filtered the data.' },
@@ -244,9 +257,13 @@ export const projects = [
     repo: 'https://github.com/johanescedrick/axa-health-insurance-claim-analysis-and-risk-prediction',
     accent: 'ember',
     visuals: [
-      { src: 'p6-riskmap.jpg', caption: 'Insurance risk map by frequency and severity' },
-      { src: 'p6-forecast.jpg', caption: 'Forecast of total claim value per month in 2026' },
-      { src: 'p6-feature-importance.jpg', caption: 'Feature importance across the models' },
+      { src: 'p6-riskmap.png', caption: 'Insurance risk map by frequency and severity' },
+      { src: 'p6-forecast.png', caption: 'Forecast of total claim value per month in 2026' },
+      { src: 'p6-top-icd-cost.png', caption: 'Top 5 ICD codes by average claim value per month' },
+      { src: 'p6-icd-claims.png', caption: 'Monthly claim count by ICD prefix' },
+      { src: 'p6-monthly-claims.png', caption: 'Total nominal claim per month' },
+      { src: 'p6-quarterly-claims.png', caption: 'Total nominal claim per quarter, 2024 to 2026' },
+      { src: 'p6-approval-ratio.png', caption: 'Distribution of the claim approval ratio' },
     ],
     steps: [
       { t: 'Understanding & Cleaning', d: 'Examined the structure, missing values, and data types of the claims, then set an imputation strategy per column.' },
@@ -286,9 +303,11 @@ export const projects = [
     repo: 'https://github.com/johanescedrick/used-car-price-prediction',
     accent: 'royal',
     visuals: [
-      { src: 'p7-model2-reg.jpg', caption: 'Best model, actual against predicted price' },
-      { src: 'p7-price-trend.jpg', caption: 'Selling price over the years by seller type' },
-      { src: 'p7-brand-price.jpg', caption: 'Average price per brand' },
+      { src: 'p7-model2-reg.png', caption: 'Best model, actual against predicted price' },
+      { src: 'p7-model1-reg.png', caption: 'Baseline model, actual against predicted price' },
+      { src: 'p7-price-trend.png', caption: 'Selling price over the years by seller type' },
+      { src: 'p7-brand-price.png', caption: 'Average price per brand' },
+      { src: 'p7-region-engine.png', caption: 'Selling price against engine size per region' },
     ],
     steps: [
       { t: 'Understanding & Cleaning', d: 'Examined the data structure, handled missing values, fixed inconsistent column formats, and corrected unit related outliers by hand.' },

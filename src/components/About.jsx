@@ -53,7 +53,7 @@ export default function About() {
           >
             <div className="overflow-hidden rounded-xl3 border border-hairline bg-mist">
               <img
-                src="/assets/profile-porto.jpeg"
+                src="/assets_final/profile-photo.jpg"
                 alt="Johanes Cedrick Wijaya"
                 className="aspect-[4/5] w-full object-cover"
                 loading="lazy"
